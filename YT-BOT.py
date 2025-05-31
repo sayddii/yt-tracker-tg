@@ -1,25 +1,20 @@
 import os
 import asyncio
-import aiohttp
+import aiohttp # Ты его импортируешь, но не используешь напрямую в этом фрагменте. Если нужен для PTB неявно - ОК.
 import signal
 import sys
 import platform
 from datetime import datetime, timezone
 from dotenv import load_dotenv
 from googleapiclient.discovery import build
+from io import BytesIO # Этот импорт нужен для BytesIO(thumbnail_data)
+
+# Импорты для python-telegram-bot
 from telegram import Bot, Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.constants import ParseMode
 from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQueryHandler
-from io import BytesIO
-from telegram_config import TelegramConfig  # Импорт из локального файла telegram_config.py
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import (
-    Application,
-    CommandHandler,
-    ContextTypes,
-    CallbackQueryHandler,
-)
-from telegram.constants import ParseMode
+
+from telegram_config import TelegramConfig # Импорт из локального файла telegram_config.py
 
 # Загрузить переменные окружения
 load_dotenv()
